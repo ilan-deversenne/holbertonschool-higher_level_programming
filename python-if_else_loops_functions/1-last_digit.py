@@ -9,7 +9,7 @@ def main():
 
     end = ""
 
-    is_zero = "and is not zero"
+    is_zero = "and not zero"
     if last_digit == 0:
         is_zero = "and not zero"
         end = is_zero
