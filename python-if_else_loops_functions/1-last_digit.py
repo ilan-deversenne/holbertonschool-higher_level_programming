@@ -2,6 +2,7 @@
 import random
 number = random.randint(-10000, 10000)
 
+
 def main():
     last_digit = number % 10
     if number < 0:
