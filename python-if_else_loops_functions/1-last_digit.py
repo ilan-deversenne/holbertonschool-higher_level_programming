@@ -18,7 +18,7 @@ def main():
         if last_digit > 5:
             greater_or_less = "and is greater than 5"
         elif last_digit < 6:
-            greater_or_less = f"is less than 6 {is_zero}"
+            greater_or_less = f"and is less than 6 {is_zero}"
 
         end = greater_or_less
 
