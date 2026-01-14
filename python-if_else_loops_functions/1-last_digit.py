@@ -9,9 +9,9 @@ def main():
 
     end = ""
 
-    is_zero = "and not zero"
+    is_zero = "and not 0"
     if last_digit == 0:
-        is_zero = "and not zero"
+        is_zero = "and is 0"
         end = is_zero
     else:
         greater_or_less = ""
