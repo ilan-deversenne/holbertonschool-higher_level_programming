@@ -5,4 +5,4 @@ a = 10
 b = 5
 
 for op, func in {"+": c.add, "-": c.sub, "*": c.mul, "/": c.div}.items():
-    print(f"{a} {op} {b} = {func(a, b)}")
+    print("{} {} {} = {}".format(a, op, b, func(a, b)))
