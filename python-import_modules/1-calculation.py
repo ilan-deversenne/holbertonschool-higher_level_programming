@@ -5,5 +5,7 @@ if __name__ == "__main__":
     a = 10
     b = 5
 
-    for op, func in {"+": c.add, "-": c.sub, "*": c.mul, "/": c.div}.items():
-        print("{} {} {} = {}".format(a, op, b, func(a, b)))
+    print("{} + {} = {}".format(a, b, c.add(a, b)))
+    print("{} - {} = {}".format(a, b, c.sub(a, b)))
+    print("{} * {} = {}".format(a, b, c.mul(a, b)))
+    print("{} / {} = {}".format(a, b, c.div(a, b)))
