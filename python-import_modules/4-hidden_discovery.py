@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-__import__("hidden_4")
 
 
 def main():
-    dirs = dir()
+    dirs = dir(__import__("hidden_4"))
     for d in dirs:
         if d.startswith("__"):
             continue
