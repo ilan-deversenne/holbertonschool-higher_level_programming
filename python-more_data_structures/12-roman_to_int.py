@@ -24,7 +24,7 @@ def roman_to_int(roman_string):
     for char in roman_string:
         result += alphabet_to_int(char)
 
-        if old_char == "I":
+        if char != "I" and old_char == "I":
             result -= 2
 
         old_char = char
