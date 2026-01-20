@@ -19,7 +19,7 @@ def roman_to_int(roman_string):
     old_char = ""
 
     if not isinstance(roman_string, str) or len(roman_string) == 0:
-        return None
+        return 0
 
     for char in roman_string:
         result += alphabet_to_int(char)
