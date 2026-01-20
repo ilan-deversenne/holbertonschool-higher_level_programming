@@ -5,5 +5,5 @@ def print_matrix_integer(matrix=[[]]):
         i = 0
         for y in x:
             i += 1
-            print("{}{}".format(y, " " if i < len(x) else ""), end="")
+            print("{:d}{:s}".format(y, " " if i < len(x) else ""), end="")
         print("")
