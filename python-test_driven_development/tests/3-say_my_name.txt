@@ -1,0 +1,25 @@
+The ``example`` module
+======================
+
+Using ``say_my_name``
+-------------------
+
+Now use it:
+
+    >>> __import__('3-say_my_name').say_my_name("John", "Due")
+    My name is John Due
+
+    >>> __import__('3-say_my_name').say_my_name(0, "Due")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> __import__('3-say_my_name').say_my_name("John", 0)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    >>> __import__('3-say_my_name').say_my_name(None)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> __import__('3-say_my_name').say_my_name("Bob")
+    My name is Bob 
