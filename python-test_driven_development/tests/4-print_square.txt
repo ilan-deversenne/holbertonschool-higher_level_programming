@@ -10,10 +10,10 @@ Now use it:
     ##
     ##
 
-    >>> _import__('4-print_square').print_square("lol")
+    >>> __import__('4-print_square').print_square("lol")
     Traceback (most recent call last):
     TypeError: size must be an integer
 
-    >>> _import__('4-print_square').print_square(-1)
+    >>> __import__('4-print_square').print_square(-1)
     Traceback (most recent call last):
     ValueError: size must be >= 0
