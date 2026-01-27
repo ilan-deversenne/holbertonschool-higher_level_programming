@@ -1,6 +1,14 @@
 #!/usr/bin/python3
 
+"""
+Square class
+"""
+
+
 class Square:
+    """
+        Initialize a new square instance
+    """
     def __init__(self, size=0, position=(0, 0)):
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
@@ -17,10 +25,16 @@ class Square:
         self.__size = size
         self.__position = position
 
+    """
+        Return size of square
+    """
     @property
     def size(self):
         return self.__size
 
+    """
+        Set size of square
+    """
     @size.setter
     def size(self, value):
         if not isinstance(value, int):
@@ -31,13 +45,22 @@ class Square:
 
         self.__size = value
 
+    """
+        Return area of square
+    """
     def area(self):
         return self.__size * self.__size
 
+    """
+        Return position of square
+    """
     @property
     def position(self):
         return self.__position
 
+    """
+        Set position of square
+    """
     @position.setter
     def position(self, position=(0, 0)):
         if not isinstance(position, tuple):
@@ -49,6 +72,9 @@ class Square:
 
         self.__position = position
 
+    """
+        Print square with #
+    """
     def my_print(self):
         if self.__size == 0:
             print()

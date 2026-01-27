@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-    Square class
+Square class
 """
 
 
@@ -43,13 +43,3 @@ class Square:
     """
     def area(self):
         return self.__size * self.__size
-
-    """
-        Print the square with #
-    """
-    def my_print(self):
-        if self.__size == 0:
-            print()
-
-        for i in range(self.__size):
-            print("#" * self.__size)
