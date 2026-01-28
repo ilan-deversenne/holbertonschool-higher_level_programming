@@ -6,4 +6,8 @@
 
 
 class Rectangle:
+    """
+        Docstring for Rectangle
+    """
+
     ...
