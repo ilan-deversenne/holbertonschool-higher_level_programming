@@ -6,6 +6,9 @@
 
 
 class Rectangle:
+    """
+        Number of instances
+    """
     number_of_instances = 0
 
     """
