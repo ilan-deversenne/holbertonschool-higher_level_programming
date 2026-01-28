@@ -72,12 +72,8 @@ class Rectangle:
     def __str__(self):
         result = ""
 
-        symbol = self.print_symbol
-        if isinstance(self.print_symbol, list):
-            symbol = self.print_symbol[0]
-
         for i in range(self.__height):
-            result += symbol * self.__width
+            result += "#" * self.__width
 
             if i < self.__height - 1:
                 result += "\n"
