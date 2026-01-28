@@ -8,6 +8,6 @@
 class Square:
     """
         Docstring for Square
-    """    
+    """
 
     ...
