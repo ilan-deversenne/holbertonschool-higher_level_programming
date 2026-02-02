@@ -5,6 +5,9 @@
 
 
 class MyList(list):
+    """
+        Class init
+    """
     def __init__(self):
         pass
 
