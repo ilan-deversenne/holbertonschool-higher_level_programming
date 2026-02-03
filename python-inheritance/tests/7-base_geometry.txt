@@ -1,0 +1,22 @@
+The ``example`` module
+======================
+
+Using ``integer_validator``
+-------------------
+
+Now use it:
+
+    >>> __import__("7-base_geometry").BaseGeometry().integer_validator("test_1", 10)
+    
+
+    >>> __import__("7-base_geometry").BaseGeometry().integer_validator("test_2", "2")
+    Traceback (most recent call last):
+    TypeError: test_2 must be an integer
+
+    >>> __import__("7-base_geometry").BaseGeometry().integer_validator("test_3", 0)
+    Traceback (most recent call last):
+    ValueError: test_3 must be greater than 0
+
+    >>> __import__("7-base_geometry").BaseGeometry().integer_validator("test_4", -6)
+    Traceback (most recent call last):
+    ValueError: test_4 must be greater than 0
