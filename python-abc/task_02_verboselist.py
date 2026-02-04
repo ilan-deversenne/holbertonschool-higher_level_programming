@@ -35,7 +35,7 @@ class VerboseList(list):
     """
     def remove(self, value):
         result = super().remove(value)
-        print("Removed [{}] to the list.".format(value))
+        print("Removed [{}] from the list.".format(value))
 
         return result
 
