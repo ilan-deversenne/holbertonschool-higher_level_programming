@@ -5,4 +5,10 @@
 
 
 def is_kind_of_class(obj, a_class):
+    """
+    Docstring for is_kind_of_class
+    
+    :param obj: Object
+    :param a_class: Class to compare
+    """
     return isinstance(obj, a_class)
