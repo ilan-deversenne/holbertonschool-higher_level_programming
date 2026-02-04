@@ -54,7 +54,8 @@ class Rectangle(BaseGeometry):
     Return string
     """
     def __str__(self):
-        return "[{}] {}/{}".format(self.__class__.__name__, self.__width, self.__height)
+        name = self.__class__.__name__
+        return "[{}] {}/{}".format(name, self.__width, self.__height)
 
 
 """
