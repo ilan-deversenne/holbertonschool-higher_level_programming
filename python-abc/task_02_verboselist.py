@@ -34,18 +34,14 @@ class VerboseList(list):
     Override to print message after remove
     """
     def remove(self, value):
-        result = super().remove(value)
         print("Removed [{}] from the list.".format(value))
 
-        return result
+        return super().remove(value)
 
     """
     Override to print message after pop
     """
     def pop(self, index=-1):
-        value = self[index]
-        result = super().pop(index)
-
-        print("Popped [{}] from the list.".format(value))
-
-        return result
+        print("Popped [{}] from the list.".format(self[index]))
+    
+        return super().pop(index)
