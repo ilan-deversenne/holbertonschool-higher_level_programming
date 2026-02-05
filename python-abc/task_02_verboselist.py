@@ -35,7 +35,6 @@ class VerboseList(list):
     """
     def remove(self, value):
         print("Removed [{}] from the list.".format(value))
-
         return super().remove(value)
 
     """
@@ -43,5 +42,4 @@ class VerboseList(list):
     """
     def pop(self, index=-1):
         print("Popped [{}] from the list.".format(self[index]))
-    
         return super().pop(index)
