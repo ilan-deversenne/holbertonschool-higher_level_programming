@@ -5,10 +5,11 @@ from json import load
 Convert json file content to a object
 """
 
+
 def load_from_json_file(filename):
     """
     Docstring for load_from_json_file
-    
+
     :param filename: Filename
     """
 
