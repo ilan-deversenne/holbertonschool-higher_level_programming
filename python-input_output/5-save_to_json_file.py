@@ -15,5 +15,15 @@ def save_to_json_file(my_obj, filename):
     :param filename: Filename
     """
 
+    def set_default(obj):
+        """
+        Docstring for set_default
+
+        :param obj: Object
+        """
+        if isinstance(obj, set):
+            return list(obj)
+        raise TypeError
+
     with open(filename, "w") as f:
-        dump(dict(my_obj), f)
+        dump(my_obj, f, default=set_default)
