@@ -1,9 +1,4 @@
 #!/usr/bin/python3
-from sys import argv
-
-load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
-save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
-
 
 """
 Add element(s) to add_item.json file
@@ -11,6 +6,12 @@ Add element(s) to add_item.json file
 Usage: ./7-add_item.py [ARGS]
 Usage: python3 7-add_item.py [ARGS]
 """
+
+
+from sys import argv
+
+load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
+save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 
 
 def main():
