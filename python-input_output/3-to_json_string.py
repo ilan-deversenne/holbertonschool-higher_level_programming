@@ -1,12 +1,14 @@
 #!/usr/bin/python3
-import json
 
 """
 Object to json string
 """
 
 
-def to_json_string(my_obj):
+import json
+
+
+def to_json_string(my_obj: object) -> str:
     """
     Docstring for to_json_string
 
