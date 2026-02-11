@@ -12,4 +12,4 @@ def read_file(filename=""):
     :param filename: Filename
     """
     with open(filename, 'r') as f:
-        print(f.read())
+        print(f.read(), end='')
