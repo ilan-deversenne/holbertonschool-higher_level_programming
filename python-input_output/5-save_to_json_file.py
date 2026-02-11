@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-from json import dump
-
 """
 Save object to a json file
 """
+
+
+from json import dump
 
 
 def save_to_json_file(my_obj, filename):
