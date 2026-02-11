@@ -51,3 +51,14 @@ class Student:
     """
     Reload from JSON
     """
+    def reload_from_json(self, json: dict):
+        """
+        Docstring for reload_from_json
+
+        :param self: Self object
+        :param json: Class JSON object
+        :type json: dict
+        """
+
+        for key, value in json.items():
+            self.__dict__[key] = value
