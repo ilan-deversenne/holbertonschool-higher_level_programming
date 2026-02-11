@@ -27,12 +27,27 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    def to_json(self) -> dict:
+    def to_json(self, attrs: list = None) -> dict:
         """
         Docstring for to_json
 
         :param self: Self object
+        :param attrs: Filter
+        :type attrs: list
         :return: Json list
         :rtype: dict
         """
-        return self.__dict__
+        result = {}
+
+        if type(attrs) is list and len(attrs) > 0:
+            for el in attrs:
+                if el in self.__dict__:
+                    result[el] = self.__dict__[el]
+        else:
+            result = self.__dict__
+
+        return result
+
+    """
+    Reload from JSON
+    """
