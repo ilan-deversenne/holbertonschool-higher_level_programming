@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-from json import dumps
 
 """
 Convert a Class to JSON
 """
+
+
+from json import dumps
 
 
 def class_to_json(obj: object) -> dict:
