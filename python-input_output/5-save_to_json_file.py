@@ -15,7 +15,5 @@ def save_to_json_file(my_obj, filename):
     :param filename: Filename
     """
 
-    print(filename, my_obj)
-
     with open(filename, "w") as f:
-        dump(list(my_obj), f)
+        dump(dict(my_obj), f)
