@@ -1,5 +1,10 @@
 #!/usr/bin/python3
 
+"""
+Pascal triangle
+"""
+
+
 def pascal_triangle(n: int) -> list:
     """
     Docstring for pascal_triangle
