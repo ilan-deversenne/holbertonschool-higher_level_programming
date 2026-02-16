@@ -4,6 +4,7 @@
 Fetch JSONPlaceholder API
 """
 
+import csv
 import requests
 
 
@@ -18,4 +19,14 @@ def fetch_and_print_posts():
         print(result.json())
 
 
-fetch_and_print_posts()
+def fetch_and_save_posts():
+    """
+    Fetch and save posts from JSONPlaceholder to csv
+    """
+    result = requests.get("https://jsonplaceholder.typicode.com/posts")
+
+    if result.status_code == 200:
+        with open("posts.csv", 'w') as f:
+            writer = csv.writer(f)
+            for post in result.json():
+                writer.writerow([post["id"], post["title"], post["body"]])
