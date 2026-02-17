@@ -1,3 +1,6 @@
+# Ignore python venv
+venv
+
 # Ignore main files (for testing)
 *-main.py
 *-main_2.py
