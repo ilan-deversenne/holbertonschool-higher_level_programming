@@ -25,8 +25,8 @@ def fetch_and_save_posts():
     """
     result = requests.get("https://jsonplaceholder.typicode.com/posts")
 
-    if result.status_code == 200:
-        with open("posts.csv", 'w') as f:
+    with open("posts.csv", 'w') as f:
+        if result.status_code == 200:
             writer = csv.writer(f)
             for post in result.json():
                 writer.writerow([post["id"], post["title"], post["body"]])
