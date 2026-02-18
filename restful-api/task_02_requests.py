@@ -18,7 +18,6 @@ def fetch_and_print_posts():
     if result.status_code == 200:
         for post in result.json():
             print(post["title"])
-            print(post["body"])
 
 
 def fetch_and_save_posts():
