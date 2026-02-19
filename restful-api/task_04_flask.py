@@ -13,7 +13,7 @@ class User:
     """
     User class
     """
-    users = []
+    users = {}
 
     def __init__(self, username: str, name: str, age: int, city: str) -> None:
         """
@@ -40,7 +40,7 @@ class User:
 
         :param self: Self object
         """
-        User.users.append(self)
+        User.users[self.username] = self.json()
 
     def json(self) -> dict:
         """
@@ -63,11 +63,8 @@ class User:
         :return: True if the username is arealy taken else False
         :rtype: bool
         """
-        for user in User.users:
-            if user.username == username:
-                return True
-
-        return False
+        print(User.users)
+        return username in User.users
 
     @staticmethod
     def by_username(username: str):
@@ -77,15 +74,13 @@ class User:
         :param username: Username
         :type username: str
         """
-        for user in User.users:
-            if user.username == username:
-                return user
+        return User.users[username]
 
 
 @app.route("/", methods=['GET'])
-def index():
+def home():
     """
-    [GET] / (Index) route
+    [GET] / route
     """
     return "Welcome to the Flask API!"
 
@@ -98,14 +93,14 @@ def status():
     return "OK"
 
 
-@app.route("/users", methods=['GET'])
+@app.route("/data", methods=['GET'])
 def get_users():
     """
-    [GET] /get_users route
+    [GET] /data route
     """
     result = []
-    for user in User.users:
-        result.append(user.username)
+    for key, data in User.users.items():
+        result.append(data['username'])
 
     return jsonify(result)
 
@@ -113,7 +108,7 @@ def get_users():
 @app.route("/users/<username>", methods=['GET'])
 def get_user(username: str):
     """
-    [GET] /get_user route
+    [GET] /users/<username> route
 
     :param username: Username
     :type username: str
@@ -121,7 +116,7 @@ def get_user(username: str):
 
     if User.username_taken(username):
         user = User.by_username(username)
-        return jsonify(user.json())
+        return jsonify(user)
 
     return jsonify({"error": "User not found"}, status=404)
 
@@ -153,12 +148,7 @@ def add_user():
 
     return jsonify({
         "message": "User added",
-        "user": {
-            "username": user.username,
-            "name": user.name,
-            "age": user.age,
-            "city": user.city
-        }
+        "user": user.json()
     })
 
 
