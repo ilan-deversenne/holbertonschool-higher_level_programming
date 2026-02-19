@@ -52,9 +52,9 @@ class Handler(http.server.BaseHTTPRequestHandler):
 
         else:
             self.send_response(404)
-            self.send_header('Content-type', 'application/json')
+            self.send_header('Content-type', 'text/html')
             self.end_headers()
-            self.wfile.write(bytes("", "utf-8"))
+            self.wfile.write(bytes("Endpoint not found", "utf-8"))
 
 
 httpd = http.server.HTTPServer(('127.0.0.1', 8000), Handler)
