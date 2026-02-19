@@ -9,6 +9,10 @@ import http.server
 
 
 class Handler(http.server.BaseHTTPRequestHandler):
+    """
+    Custom http server BaseHTTPRequestHandler handler
+    """
+
     def do_GET(self):
         """
         Docstring for do_GET
