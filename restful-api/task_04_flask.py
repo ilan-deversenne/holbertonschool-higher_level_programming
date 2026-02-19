@@ -6,75 +6,8 @@ Simple Flask API
 
 from flask import Flask, request, jsonify
 
+users = {}
 app = Flask(__name__)
-
-
-class User:
-    """
-    User class
-    """
-    users = {}
-
-    def __init__(self, username: str, name: str, age: int, city: str) -> None:
-        """
-        Create a user (without store)
-
-        :param self: Self object
-        :param username: Username
-        :type username: str
-        :param name: Name
-        :type name: str
-        :param age: Age
-        :type age: int
-        :param city: City
-        :type city: str
-        """
-        self.username = username
-        self.name = name
-        self.age = age
-        self.city = city
-
-    def store(self):
-        """
-        Store the user into the users list
-
-        :param self: Self object
-        """
-        User.users[self.username] = self.json()
-
-    def json(self) -> dict:
-        """
-        Dict for searilize object
-
-        :param self: Self object
-        :return: List of attributs
-        :rtype: dict
-        """
-
-        return self.__dict__
-
-    @staticmethod
-    def username_taken(username: str) -> bool:
-        """
-        Check if a username is arealy used
-
-        :param username: Description
-        :type username: str
-        :return: True if the username is arealy taken else False
-        :rtype: bool
-        """
-        print(User.users)
-        return username in User.users
-
-    @staticmethod
-    def by_username(username: str):
-        """
-        Get a stored user by his username
-
-        :param username: Username
-        :type username: str
-        """
-        return User.users[username]
 
 
 @app.route("/", methods=['GET'])
@@ -99,8 +32,8 @@ def get_users():
     [GET] /data route
     """
     result = []
-    for key, data in User.users.items():
-        result.append(data['username'])
+    for key in users.keys():
+        result.append(key)
 
     return jsonify(result)
 
@@ -114,9 +47,15 @@ def get_user(username: str):
     :type username: str
     """
 
-    if User.username_taken(username):
-        user = User.by_username(username)
-        return jsonify(user)
+    if username in users.keys():
+        user = users[username]
+
+        return jsonify({
+            "username": username,
+            "name": user['name'],
+            "age": user['age'],
+            "city": user['city']
+        })
 
     return jsonify({"error": "User not found"}), 404
 
@@ -140,15 +79,23 @@ def add_user():
     if username == "":
         return jsonify({"error": "Username is required"}), 400
 
-    if User.username_taken(username):
+    if username in users.keys():
         return jsonify({"error": "Username already exists"}), 409
 
-    user = User(username, name, age, city)
-    user.store()
+    users[username] = {
+        "name": name,
+        "age": age,
+        "city": city
+    }
 
     return jsonify({
         "message": "User added",
-        "user": user.json()
+        "user": {
+            "username": username,
+            "name": name,
+            "age": age,
+            "city": city
+        }
     })
 
 
