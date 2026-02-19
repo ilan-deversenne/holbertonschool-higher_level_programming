@@ -118,7 +118,7 @@ def get_user(username: str):
         user = User.by_username(username)
         return jsonify(user)
 
-    return jsonify({"error": "User not found"}, status=404)
+    return jsonify({"error": "User not found"}), 404
 
 
 @app.route("/add_user", methods=['POST'])
@@ -130,7 +130,7 @@ def add_user():
     """
 
     if request.get_json() is None:
-        return jsonify({"error": "Invalid JSON"}, status=400)
+        return jsonify({"error": "Invalid JSON"}), 400
 
     username = request.json.get('username', '')
     name = request.json.get('name', '')
@@ -138,10 +138,10 @@ def add_user():
     city = request.json.get('city', '')
 
     if username == "":
-        return jsonify({"error": "Username is required"}, status=400)
+        return jsonify({"error": "Username is required"}), 400
 
     if User.username_taken(username):
-        return jsonify({"error": "Username already exists"}, status=409)
+        return jsonify({"error": "Username already exists"}), 409
 
     user = User(username, name, age, city)
     user.store()
