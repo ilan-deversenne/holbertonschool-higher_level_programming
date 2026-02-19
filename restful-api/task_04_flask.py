@@ -84,16 +84,25 @@ class User:
 
 @app.route("/", methods=['GET'])
 def index():
+    """
+    [GET] / (Index) route
+    """
     return "Welcome to the Flask API!"
 
 
 @app.route("/status", methods=['GET'])
 def status():
+    """
+    [GET] /status route
+    """
     return "OK"
 
 
 @app.route("/users", methods=['GET'])
 def get_users():
+    """
+    [GET] /get_users route
+    """
     result = []
     for user in User.users:
         result.append(user.username)
@@ -103,6 +112,13 @@ def get_users():
 
 @app.route("/users/<username>", methods=['GET'])
 def get_user(username: str):
+    """
+    [GET] /get_user route
+
+    :param username: Username
+    :type username: str
+    """
+
     if User.username_taken(username):
         user = User.by_username(username)
         return jsonify(user.json())
@@ -112,6 +128,12 @@ def get_user(username: str):
 
 @app.route("/add_user", methods=['POST'])
 def add_user():
+    """
+    [POST] /add_user route
+
+    JSON: username, name, age, city
+    """
+
     if request.get_json() is None:
         return jsonify({"error": "Invalid JSON"}, status=400)
 
