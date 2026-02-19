@@ -29,5 +29,7 @@ def fetch_and_save_posts():
     with open("posts.csv", 'w') as f:
         if result.status_code == 200:
             writer = csv.writer(f)
+            writer.writerow(["id", "title", "body"])
+
             for post in result.json():
                 writer.writerow([post["id"], post["title"], post["body"]])
