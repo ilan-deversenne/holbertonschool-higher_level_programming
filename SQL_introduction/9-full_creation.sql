@@ -1,3 +1,6 @@
+-- Create second_table if doesn't exist
+-- Insert 4 values in second_table
+
 CREATE TABLE IF NOT EXISTS second_table (
 	id int,
 	name varchar(256),
