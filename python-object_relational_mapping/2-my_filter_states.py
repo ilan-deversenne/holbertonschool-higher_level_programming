@@ -24,7 +24,7 @@ def main():
     name = sys.argv[4].replace("'", '')
 
     c = db.cursor()
-    c.execute("SELECT * FROM states WHERE name = %s ORDER BY id ASC", (name,))
+    c.execute("SELECT * FROM states WHERE name = '{:s}' ORDER BY id ASC".format(name))
 
     for row in c.fetchall():
         print(row)
