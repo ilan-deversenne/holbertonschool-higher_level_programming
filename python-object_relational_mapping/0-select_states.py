@@ -7,6 +7,7 @@ Fetch all states
 import MySQLdb
 import sys
 
+
 def main():
     username = sys.argv[1]
     password = sys.argv[2]
@@ -28,6 +29,7 @@ def main():
 
     c.close()
     db.close()
+
 
 if __name__ == '__main__':
     main()
