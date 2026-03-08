@@ -7,23 +7,27 @@ Fetch all states
 import MySQLdb
 import sys
 
-username = sys.argv[1]
-password = sys.argv[2]
-database = sys.argv[3]
+def main():
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
 
-db = MySQLdb.connect(
-    host="localhost",
-    port=3306,
-    user=username,
-    passwd=password,
-    db=database
-)
+    db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=username,
+        passwd=password,
+        db=database
+    )
 
-c = db.cursor()
-c.execute("SELECT * FROM states ORDER BY id ASC")
+    c = db.cursor()
+    c.execute("SELECT * FROM states ORDER BY id ASC")
 
-for row in c.fetchall():
-    print(row)
+    for row in c.fetchall():
+        print(row)
 
-c.close()
-db.close()
+    c.close()
+    db.close()
+
+if __name__ == '__main__':
+    main()
