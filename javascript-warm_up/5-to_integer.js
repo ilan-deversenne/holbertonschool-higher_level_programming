@@ -1,3 +1,4 @@
 #!/usr/bin/node
 
-console.log('My number: ' + parseInt(process.argv[2]) || 'Not a number');
+const n = parseInt(process.argv[2]);
+console.log(n ? 'My number: ' + n : 'Not a number');
