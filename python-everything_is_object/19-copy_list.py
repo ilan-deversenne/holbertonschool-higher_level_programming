@@ -1,2 +1,2 @@
-def copy_list(list: list) -> list:
-    return list.copy()
+def copy_list(el: list) -> list:
+    return list(el)
